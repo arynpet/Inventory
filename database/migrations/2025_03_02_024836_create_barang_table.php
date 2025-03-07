@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('nama_barang'); // Kolom untuk nama barang
             $table->string('kategori'); // Kolom untuk kategori barang
             $table->integer('stok'); // Kolom untuk stok barang
-            $table->enum('status', ['cacat', 'tidak cacat']);  // Kolom untuk kondsi barang 
+            $table->enum('kondisi', ['cacat', 'tidak cacat']);  // Kolom untuk kondsi barang 
             $table->timestamps(); // Menambahkan kolom created_at dan updated_at
         });
     }

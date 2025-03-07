@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('peminjaman', function (Blueprint $table) {
             $table->id('id_peminjaman'); // Primary key
-            $table->foreignId('id_barang')->constrained('barang')->onDelete('cascade'); // Foreign key ke tabel barang
+            $table->unsignedBigInteger('id_barang');
             $table->string('nisn', 20); // NISN siswa
             $table->integer('jumlah_pinjam'); // Jumlah pinjam
             $table->date('tanggal_pinjam'); // Tanggal pinjam
@@ -23,6 +23,8 @@ return new class extends Migration
 
             // Menambahkan index untuk nisn
             $table->index('nisn');
+
+            $table->foreign('id_barang')->references('id_barang')->on('barang')->onDelete('cascade');
         });
     }
 
